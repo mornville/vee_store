@@ -23,6 +23,7 @@ import Message from './Message.vue';
     import Message from './Message.vue';
     import Header from './header.vue';
     import Menu from './menu.vue';
+    
 
     export default{
         name: 'App',
