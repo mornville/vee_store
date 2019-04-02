@@ -80,11 +80,11 @@
                         <h1>Cart({{ cart.length }})</h1>
                 <div>
                 <div v-if="!cart.length">
-                    <marquee>
+                    
                         <h1>
-                        Khareed lo Bhai kuch? Bhookh lg rhi hai!
+                       Why Empty? Buy Somethinng :)
                         </h1>
-                    </marquee>
+                   
                 </div>    
                <ul class="list pl0 mt0 measure center">
                     <li    class="flex items-center lh-copy pa3 ph0-l bb b--black-10" v-for="item in cart"> 
