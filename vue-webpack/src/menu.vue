@@ -71,24 +71,39 @@
             </div>
 
             <div class="interior"  id="mybutton">
-                        <a class="btn" href="#open-modal"><i class="fas fa-external-link-alt"></i>Cart ( {{ cart.length }} )</a>
+                        <a class="f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-black" href="#open-modal" style="color:white;text-decoration:none;"><i class="fas fa-external-link-alt"></i>Cart ( {{ cart.length }} )</a>
             </div>
                    
-            <div id="open-modal" class="modal-window">
+            <div id="open-modal" class="modal-window" style="text-align:center">
                 <div class="container">
                      <a href="#" title="Close" class="modal-close"><span class="fa fa-times"></span></a>
                         <h1>Cart({{ cart.length }})</h1>
                 <div>
-               <ul>
-                    <li v-for="item in cart">
-                    {{ item.name }} - {{ item.description }} - <b>Rs. {{item.price}} </b>
-                    <button v-on:click="addToCart(item)">+</button> 
-                    {{ item.quantity }} 
-                    <button v-on:click="removeFromCart(item)">-</button> 
-                    <br><br>
-                    </li>
+                <div v-if="!cart.length">
+                    <marquee>
+                        <h1>
+                        Khareed lo Bhai kuch? Bhookh lg rhi hai!
+                        </h1>
+                    </marquee>
+                </div>    
+               <ul class="list pl0 mt0 measure center">
+                    <li    class="flex items-center lh-copy pa3 ph0-l bb b--black-10" v-for="item in cart"> 
+                        <img class="w2 h2 w3-ns h3-ns br-100" src="src/assets/tikka.jpg" />
+                        <div class="pl3 flex-auto">
+                            <span class="f6 db black-70"> {{ item.name }}</span>
+                            <span class="f6 db black-70">Rs. {{item.price}}</span>
+                        </div>
+                        <div>
+                            <a  class="f6 link blue hover-dark-gray"> <button v-on:click="addToCart(item)">+</button> 
+                                        {{ item.quantity }} 
+                                        <button v-on:click="removeFromCart(item)">-</button> </a>
+                        </div>
+                    </li>     
+
+    <br><br><br>
+               <button v-on:click="checkout(item.quantity,item.price)">CheckOut ( {{ sum }}/- )  </button> 
                </ul>
-                <button v-on:click="checkout(item.quantity,item.price)">CheckOut ( {{ sum }}/- )  </button> 
+               
     
 
                 </div>
@@ -120,42 +135,42 @@ export default {
                 { 
                 name: 'Paneer Manchurian', 
                 itemID: 'jk778aA', 
-                price: 250.56, 
+                price: 250, 
                 description: "",
                 quantity: 0
                 },
                 { 
                     name: 'Coca Cola', 
                     itemID: 'sadjlk823', 
-                    price: 100.00,
+                    price: 100,
                     description: "",
                     quantity: 0
                 },
                 { 
                     name: 'Bisleri 1L', 
                     itemID: 'kja767', 
-                    price: 30.00,
+                    price: 30,
                     description: "",
                     quantity: 0
                 },
                    { 
                     name: 'Chai', 
                     itemID: 'k2ja767', 
-                    price: 30.00,
+                    price: 30,
                     description: "",
                     quantity: 0
                 },
                  { 
                     name: 'Coffee', 
                     itemID: '334jhs', 
-                    price: 30.00,
+                    price: 30,
                     description: "",
                     quantity: 0
                 },
                   { 
                     name: 'LOL?', 
                     itemID: '334j33hs', 
-                    price: 30000000.00,
+                    price: 30000000,
                     description: "",
                     quantity: 0
                 },
@@ -185,6 +200,7 @@ export default {
  methods: {
       addToCart: function(item) {
           console.log(this.sum);
+          alert('added');
          
           if (this.cart.length == 0) {
               item.quantity += 1;
