@@ -3,7 +3,7 @@
         <div class="row">
                 
             <div class="col-lg-4" style="padding:20px">
-                <h5 style="letter-spacing:3px;text-align:center">STARTERS</h5>
+                <h5 style="letter-spacing:3px;text-align:center">STARTERS{{ total }}</h5>
                 <br>
                 <main class="mw6 center"   v-for="item in items">
                         <article class="dt w-100 bb b--black-05 pb2 mt2" href="#0">
@@ -118,24 +118,45 @@ export default {
             total:0,
             items: [
                 { 
-                name: 'Foo', 
+                name: 'Paneer Manchurian', 
                 itemID: 'jk778aA', 
                 price: 250.56, 
-                description: "Template lorem ipsum.",
+                description: "",
                 quantity: 0
                 },
                 { 
                     name: 'Coca Cola', 
                     itemID: 'sadjlk823', 
                     price: 100.00,
-                    description: "WTF",
+                    description: "",
                     quantity: 0
                 },
                 { 
                     name: 'Bisleri 1L', 
                     itemID: 'kja767', 
                     price: 30.00,
-                    description: "Drink some water",
+                    description: "",
+                    quantity: 0
+                },
+                   { 
+                    name: 'Chai', 
+                    itemID: 'k2ja767', 
+                    price: 30.00,
+                    description: "",
+                    quantity: 0
+                },
+                 { 
+                    name: 'Coffee', 
+                    itemID: '334jhs', 
+                    price: 30.00,
+                    description: "",
+                    quantity: 0
+                },
+                  { 
+                    name: 'LOL?', 
+                    itemID: '334j33hs', 
+                    price: 30000000.00,
+                    description: "",
                     quantity: 0
                 },
             ],
@@ -163,6 +184,7 @@ export default {
  methods: {
       addToCart: function(item) {
           console.log("executing this!!");
+         
           if (this.cart.length == 0) {
               item.quantity += 1;
               this.cart.push(item);
