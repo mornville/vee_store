@@ -102,12 +102,15 @@ export default {
         {name: 'Black Currant', cost:70},
         {name: 'Vanilla', cost:70}
     ],
-    reverse(){
+
+    
+    }
+    
+  },
+  methods:{
+       reverse(){
         this.total++;
     }
-    
-    }
-    
   }
 }
 </script>
