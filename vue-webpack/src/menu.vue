@@ -3,7 +3,7 @@
         <div class="row">
                 
             <div class="col-lg-4" style="padding:20px">
-                <h5 style="letter-spacing:3px;text-align:center">STARTERS{{ total }}</h5>
+                <h5 style="letter-spacing:3px;text-align:center">STARTERS</h5>
                 <br>
                 <main class="mw6 center"   v-for="item in items">
                         <article class="dt w-100 bb b--black-05 pb2 mt2" href="#0">
@@ -88,7 +88,7 @@
                     <br><br>
                     </li>
                </ul>
-                <button v-on:click="checkout(item.quantity,item.price)">CheckOut</button> 
+                <button v-on:click="checkout(item.quantity,item.price)">CheckOut ( {{ sum }}/- )  </button> 
     
 
                 </div>
@@ -176,6 +176,7 @@ export default {
                 {name: 'Vanilla', cost:70}
             ],
             cart:[],
+            sum:0,
 
     
         }
@@ -183,10 +184,11 @@ export default {
   },
  methods: {
       addToCart: function(item) {
-          console.log("executing this!!");
+          console.log(this.sum);
          
           if (this.cart.length == 0) {
               item.quantity += 1;
+              this.sum = this.sum + item.price;
               this.cart.push(item);
           }
           else {
@@ -194,11 +196,13 @@ export default {
             this.cart.forEach(element => {
                 if (element.itemID === item.itemID) {
                     element.quantity += 1;
+                     this.sum = this.sum + item.price;
                     found = true;
                 }
             });
             if (found==false) {
                 item.quantity += 1
+                 this.sum = this.sum + item.price;
                 this.cart.push(item);
             }
           }
@@ -229,11 +233,13 @@ export default {
                     if (element.itemID === item.itemID) {
                         
                         element.quantity -= 1;
+                         this.sum = this.sum - item.price;
                         found = true;
                     }
                 });
                 if (found==false) {
                     item.quantity -= 1
+                     this.sum = this.sum - item.price;
                     this.cart.push(item);
                 }
               }
