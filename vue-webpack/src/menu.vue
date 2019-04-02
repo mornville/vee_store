@@ -16,7 +16,7 @@
                         </div>
                         <div class="dtc v-mid">
                             <form class="w-100 tr">
-                            <button class="f6 button-reset bg-white ba b--black-10 dim pointer pv1 black-60" type="submit" @click="reverse()">+ Add To Cart</button>
+                            <button class="f6 button-reset bg-white ba b--black-10 dim pointer pv1 black-60" id="but" v-on:click="reverse()">+ Add To Cart</button>
                             </form>
                         </div>
                         </article>
@@ -39,7 +39,7 @@
                         </div>
                         <div class="dtc v-mid">
                             <form class="w-100 tr">
-                            <button class="f6 button-reset bg-white ba b--black-10 dim pointer pv1 black-60" type="submit" @click="reverse()" >+ Add To Cart</button>
+                            <button class="f6 button-reset bg-white ba b--black-10 dim pointer pv1 black-60" id="but2" v-on:click="reverse()" >+ Add To Cart</button>
                             </form>
                         </div>
                         </article>
@@ -61,7 +61,7 @@
                         </div>
                         <div class="dtc v-mid">
                             <form class="w-100 tr">
-                            <button class="f6 button-reset bg-white ba b--black-10 dim pointer pv1 black-60" type="submit"  @click="reverse()">+ Add To Cart</button>
+                            <button class="f6 button-reset bg-white ba b--black-10 dim pointer pv1 black-60 but" type="submit"  @click="reverse()">+ Add To Cart</button>
                             </form>
                         </div>
                         </article>
@@ -78,6 +78,7 @@
 
 </template>
 <script>
+
 export default {
    data() {
     return{
