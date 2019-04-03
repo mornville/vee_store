@@ -17,7 +17,7 @@
                         </div>
                         <div class="dtc v-mid">
                             <form class="w-100 tr">
-                            <button class="btn plus btn-primary btn-sm" id="but" v-on:click="addToCart(item)"> + </button>
+                            <button class="btn plus btn-info btn-sm" id="but" v-on:click="addToCart(item)"> + </button>
 
                             </form>
                         </div>
@@ -46,7 +46,7 @@
                         </div>
                         <div class="dtc v-mid">
                             <form class="w-100 tr">
-                            <button class="btn plus btn-primary btn-sm" id="but" v-on:click="addToCart(i)" > + </button>
+                            <button class="btn plus btn-info btn-sm" id="but" v-on:click="addToCart(i)" > + </button>
                             </form>
                         </div>
                         </article>
@@ -68,7 +68,7 @@
                         </div>
                         <div class="dtc v-mid">
                             <form class="w-100 tr">
-                            <button class="btn btn-primary plus  btn-sm" id="but" v-on:click="addToCart(i)"> + </button>
+                            <button class="btn btn-info plus  btn-sm" id="but" v-on:click="addToCart(i)"> + </button>
                             </form>
                         </div>
                         </article>
@@ -103,7 +103,7 @@
                                     <img class="w2 h2 w3-ns h3-ns br-100" src="src/assets/tikka.jpg" />
                                     <div class="pl3 flex-auto">
                                         <span class="f6 db black-70"> {{ item.name }}</span>
-                                        <span class="f6 db black-70">Rs. {{item.price}}</span>
+                                        <span class="f6 db black-70">&#8377; {{item.price}}</span>
                                     </div>
                                     <div>
                                         <a  class="f6 link blue hover-dark-gray"> <button v-on:click="addToCart(item)">+</button> 
@@ -116,7 +116,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">BUY MORE?</button>
-                        <button type="button" class="btn btn-primary">CHECKOUT ( {{ sum }}/- )</button>
+                        <button type="button" class="btn btn-primary">CHECKOUT ( &#8377; {{ sum }}  )</button>
                     </div>
                     </div>
                 </div>
