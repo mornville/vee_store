@@ -6,7 +6,7 @@ import Message from './Message.vue';
 
     <Header store_name="Store Ka Naam" store_desc="Something About this store Timing etc"></Header>
     <hr>
-    <h1 style="text-align:center">Menu</h1>
+    <h1 style="text-align:center;letter-spacing:5px" >MENU</h1>
     <hr><br><br>
     <Menu></Menu>
 
