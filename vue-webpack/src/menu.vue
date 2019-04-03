@@ -17,6 +17,7 @@
                         <div class="dtc v-mid">
                             <form class="w-100 tr">
                             <button class="f6 button-reset bg-white ba b--black-10 dim pointer pv1 black-60" id="but" v-on:click="addToCart(item)">+ Add To Cart</button>
+
                             </form>
                         </div>
                         </article>
@@ -76,7 +77,9 @@
             </div>
 
             <div class="interior"  id="mybutton">
-                        <a class="f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-black" href="#open-modal" style="color:white;text-decoration:none;"><i class="fas fa-external-link-alt"></i>Cart ( {{ cart.length }} )</a>
+  
+                         <a href="#open-modal"  style="color:white;text-decoration:none;"><span class=" cart-notif">{{ cart.length }}</span><i class=" car fa fa-shopping-bag "></i></a>
+
             </div>
                    
             <div id="open-modal" class="modal-window" style="text-align:center">
@@ -317,10 +320,25 @@ export default {
   padding: 10px 20px;
   
 }
+a > .cart-notif {
+  display: inline-block;
+  position: relative;
+  padding-left: 0px;
+  width: 23px;
+  height: 23px;
+  top: -20px;
+  right: -30px;
+  border-radius: 100px;
+  background: #EF413F;
+  color: #fff;
+  font-size: 15px;
+  line-height: 20px;
+  text-align: center;
+}
 
 #mybutton {
   position: fixed;
-  bottom: -4px;
+  bottom:2px;
   right: 10px;
 }
 .modal-window {
@@ -336,6 +354,12 @@ export default {
 	 -webkit-transition: all 0.3s;
 	 -moz-transition: all 0.3s;
 	 transition: all 0.3s;
+}
+.car{
+    background:black;
+    padding:20px;
+    font-size:40px;
+    border-radius: 50%;
 }
  .modal-window:target {
 	 opacity: 1;
