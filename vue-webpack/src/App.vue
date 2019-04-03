@@ -2,15 +2,19 @@ import Message from './Message.vue';
 
 
 <template>
-  <div id="app" class="container">
-
-    <Header store_name="Store Ka Naam" store_desc="Something About this store Timing etc"></Header>
-    <hr>
-    <h1 style="text-align:center;letter-spacing:5px" >MENU</h1>
-    <hr><br><br>
+  <div id="app">
+     <Header store_name="Store Ka Naam" store_desc="Something About this store Timing etc"></Header>
+     <br><br>
+    <div class="container">   
+   <br>
+     <h1 class="f5 f4-ns fw6 mid-gray" style="text-align:center;letter-spacing:2px;font-size:3.5em">The Menu</h1>
+  <h2 class="f6 gray fw2 ttu tracked" style="text-align:center">You'll Love Our Food</h2>
+   <br><br>
     <Menu></Menu>
-
+<br><br><br><br>
   </div>
+  </div>
+  
  
 </template>
 

@@ -4,7 +4,7 @@
             
             <div class="col-lg-4" style="padding:20px">
               
-                <h5 style="letter-spacing:3px;text-align:center">STARTERS</h5>
+                <h5 style="letter-spacing:3px;text-align:center;font-family: 'Montserrat', sans-serif;">STARTERS</h5>
                 <br>
                 <main class="mw6 center"   v-for="item in items">
                         <article class="dt w-100 bb b--black-05 pb2 mt2" href="#0">
@@ -17,7 +17,7 @@
                         </div>
                         <div class="dtc v-mid">
                             <form class="w-100 tr">
-                            <button class="btn btn-primary btn-sm" id="but" v-on:click="addToCart(item)">+ Add To Cart</button>
+                            <button class="btn plus btn-primary btn-sm" id="but" v-on:click="addToCart(item)"> + </button>
 
                             </form>
                         </div>
@@ -33,7 +33,7 @@
             </div>
             
              <div class="col-lg-4" style="padding:20px">
-                <h5 style="letter-spacing:3px;text-align:center ">MAIN COURSE</h5>
+                <h5 style="letter-spacing:3px;text-align:center;font-family: 'Montserrat', sans-serif; ">MAIN COURSE</h5>
                 <br>
                 <main class="mw6 center"   v-for="i in main">
                         <article class="dt w-100 bb b--black-05 pb2 mt2" href="#0">
@@ -46,7 +46,7 @@
                         </div>
                         <div class="dtc v-mid">
                             <form class="w-100 tr">
-                            <button class="btn btn-primary btn-sm" id="but" v-on:click="addToCart(i)" >+ Add To Cart</button>
+                            <button class="btn plus btn-primary btn-sm" id="but" v-on:click="addToCart(i)" > + </button>
                             </form>
                         </div>
                         </article>
@@ -55,7 +55,7 @@
 
             </div>
               <div class="col-lg-4" style="padding:20px">
-                <h5 style="letter-spacing:3px;text-align:center">Deserts</h5>
+                <h5 style="letter-spacing:3px;text-align:center;font-family: 'Montserrat', sans-serif;">DESERTS</h5>
                 <br>
                 <main class="mw6 center"   v-for="i in deserts">
                         <article class="dt w-100 bb b--black-05 pb2 mt2" href="#0">
@@ -68,7 +68,7 @@
                         </div>
                         <div class="dtc v-mid">
                             <form class="w-100 tr">
-                            <button class="btn btn-primary btn-sm" type="submit"  @click="reverse()">+ Add To Cart</button>
+                            <button class="btn btn-primary plus btn-sm" type="submit"  @click="reverse()"> + </button>
                             </form>
                         </div>
                         </article>
@@ -78,7 +78,7 @@
             </div>
 
             <!-- Button trigger modal -->
-                <span style="color:white" id="mybutton" data-toggle="modal" data-target="#exampleModalLong"><span class="cart-notif" style="box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
+                <span style="color:black" id="mybutton" data-toggle="modal" data-target="#exampleModalLong"><span class="cart-notif" style="box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
                         0 5px 15px 0 rgba(0,0,0,0.08);">{{ cart.length }}</span><i class=" car fa fa-shopping-bag "></i>
                 </span>
 
@@ -362,8 +362,17 @@ h1{
   right: 10px;
   
 }
-
-
+.plus{
+      box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
+            0 5px 15px 0 rgba(0,0,0,0.08);
+    padding:8px;
+    
+    border-radius: 50%;
+    cursor:pointer;
+}
+.col{
+   border : 1px solid black; 
+}
 .car{
   box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
             0 5px 15px 0 rgba(0,0,0,0.08);
