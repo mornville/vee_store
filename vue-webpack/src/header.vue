@@ -7,7 +7,7 @@
        
       </nav> 
       <div class="tc-l mt4 mt5-m mt6-l ph3">
-        <h1 class="f2 f1-l fw2 white-90 mb0 lh-title" style="text-align:center">{{ store_name}}</h1>
+        <h1 class="f2 f1-l fw2 white-90 mb0 lh-title" style="text-align:center;text-transform:uppercase;letter-spacing:3px;" >{{ store_name}}</h1>
         <h2 class="fw1 f3 white-80 mt3 mb4" style="text-align:center">{{ store_desc }}</h2>
       
       </div>
