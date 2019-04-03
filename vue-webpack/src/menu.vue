@@ -1,8 +1,9 @@
 <template>
 
         <div class="row">
-                
+            
             <div class="col-lg-4" style="padding:20px">
+              
                 <h5 style="letter-spacing:3px;text-align:center">STARTERS</h5>
                 <br>
                 <main class="mw6 center"   v-for="item in items">
@@ -16,7 +17,7 @@
                         </div>
                         <div class="dtc v-mid">
                             <form class="w-100 tr">
-                            <button class="f6 button-reset bg-white ba b--black-10 dim pointer pv1 black-60" id="but" v-on:click="addToCart(item)">+ Add To Cart</button>
+                            <button class="btn btn-primary btn-sm" id="but" v-on:click="addToCart(item)">+ Add To Cart</button>
 
                             </form>
                         </div>
@@ -32,7 +33,7 @@
             </div>
             
              <div class="col-lg-4" style="padding:20px">
-                <h5 style="letter-spacing:3px;text-align:center">MAIN COURSE</h5>
+                <h5 style="letter-spacing:3px;text-align:center ">MAIN COURSE</h5>
                 <br>
                 <main class="mw6 center"   v-for="i in main">
                         <article class="dt w-100 bb b--black-05 pb2 mt2" href="#0">
@@ -45,7 +46,7 @@
                         </div>
                         <div class="dtc v-mid">
                             <form class="w-100 tr">
-                            <button class="f6 button-reset bg-white ba b--black-10 dim pointer pv1 black-60" id="but" v-on:click="addToCart(i)" >+ Add To Cart</button>
+                            <button class="btn btn-primary btn-sm" id="but" v-on:click="addToCart(i)" >+ Add To Cart</button>
                             </form>
                         </div>
                         </article>
@@ -67,7 +68,7 @@
                         </div>
                         <div class="dtc v-mid">
                             <form class="w-100 tr">
-                            <button class="f6 button-reset bg-white ba b--black-10 dim pointer pv1 black-60 but" type="submit"  @click="reverse()">+ Add To Cart</button>
+                            <button class="btn btn-primary btn-sm" type="submit"  @click="reverse()">+ Add To Cart</button>
                             </form>
                         </div>
                         </article>
@@ -133,7 +134,7 @@
 
 
 
-
+    import but from './butt.vue';
 
             export default {
                 
@@ -150,6 +151,10 @@
                 
 
                 
+            },
+            name:'men',
+            components:{
+                but
             },
             data() {
                 return{
@@ -327,6 +332,9 @@
 
 
 <style>
+h1{
+    font-family: 'Montserrat', sans-serif;
+}
 .feedback {
 
   padding: 10px 20px;
@@ -357,11 +365,23 @@
 
 
 .car{
-    background:rgb(124, 124, 72);
+  box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
+            0 5px 15px 0 rgba(0,0,0,0.08);
     padding:20px;
     font-size:40px;
     border-radius: 50%;
+    cursor:pointer;
     
+
+}
+.starters{
+    background: #fff;
+    padding:20px;
+    box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
+            0 5px 15px 0 rgba(0,0,0,0.08);
+}
+.car:hover{
+    background:black;
 }
 
 
