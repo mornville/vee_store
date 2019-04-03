@@ -13,7 +13,7 @@
                         </div>
                         <div class="dtc v-mid pl3">
                             <h1 class="f6 f5-ns fw6 lh-title black mv0">{{ item.name }} </h1>
-                            <h2 class="f6 fw4 mt0 mb0 black-60"> {{ item.price }}</h2>
+                            <h2 class="f6 fw4 mt0 mb0 black-60">&#8377; {{ item.price }}</h2>
                         </div>
                         <div class="dtc v-mid">
                             <form class="w-100 tr">
@@ -42,7 +42,7 @@
                         </div>
                         <div class="dtc v-mid pl3">
                             <h1 class="f6 f5-ns fw6 lh-title black mv0">{{ i.name }} </h1>
-                            <h2 class="f6 fw4 mt0 mb0 black-60"> {{ i.price }}</h2>
+                            <h2 class="f6 fw4 mt0 mb0 black-60">&#8377; {{ i.price }}</h2>
                         </div>
                         <div class="dtc v-mid">
                             <form class="w-100 tr">
@@ -64,11 +64,11 @@
                         </div>
                         <div class="dtc v-mid pl3">
                             <h1 class="f6 f5-ns fw6 lh-title black mv0">{{ i.name }} </h1>
-                            <h2 class="f6 fw4 mt0 mb0 black-60"> {{ i.cost }}</h2>
+                            <h2 class="f6 fw4 mt0 mb0 black-60">&#8377; {{ i.price }}</h2>
                         </div>
                         <div class="dtc v-mid">
                             <form class="w-100 tr">
-                            <button class="btn btn-primary plus btn-sm" type="submit"  @click="reverse()"> + </button>
+                            <button class="btn btn-primary plus  btn-sm" id="but" v-on:click="addToCart(i)"> + </button>
                             </form>
                         </div>
                         </article>
@@ -234,11 +234,48 @@
                             },
                         ],
                         deserts:[
-                            {name: 'Mango', cost:70},
-                            {name: 'Strawberry', cost:70},
-                            {name: 'ButterScotch', cost:70},
-                            {name: 'Black Currant', cost:70},
-                            {name: 'Vanilla', cost:70}
+                          { 
+                            name: 'Mango', 
+                            itemID: 'asasd', 
+                            price: 50, 
+                            description: "",
+                            quantity: 0
+                            },
+                            { 
+                                name: 'Black', 
+                                itemID: 'sadjlk83', 
+                                price: 100,
+                                description: "",
+                                quantity: 0
+                            },
+                            { 
+                                name: 'Vanilla', 
+                                itemID: 'kja7', 
+                                price: 30,
+                                description: "",
+                                quantity: 0
+                            },
+                            { 
+                                name: 'Scotch', 
+                                itemID: 'k2a767', 
+                                price: 30,
+                                description: "",
+                                quantity: 0
+                            },
+                            { 
+                                name: 'Butter', 
+                                itemID: '33hs', 
+                                price: 30,
+                                description: "",
+                                quantity: 0
+                            },
+                            { 
+                                name: 'Chocolate', 
+                                itemID: '334j3s', 
+                                price: 30000000,
+                                description: "",
+                                quantity: 0
+                            },
                         ],
                         cart:[],
                         sum:0,
