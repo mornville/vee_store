@@ -35,11 +35,11 @@
                         </div>
                         <div class="dtc v-mid pl3">
                             <h1 class="f6 f5-ns fw6 lh-title black mv0">{{ i.name }} </h1>
-                            <h2 class="f6 fw4 mt0 mb0 black-60"> {{ i.cost }}</h2>
+                            <h2 class="f6 fw4 mt0 mb0 black-60"> {{ i.price }}</h2>
                         </div>
                         <div class="dtc v-mid">
                             <form class="w-100 tr">
-                            <button class="f6 button-reset bg-white ba b--black-10 dim pointer pv1 black-60" id="but2" v-on:click="reverse()" >+ Add To Cart</button>
+                            <button class="f6 button-reset bg-white ba b--black-10 dim pointer pv1 black-60" id="but" v-on:click="addToCart(i)" >+ Add To Cart</button>
                             </form>
                         </div>
                         </article>
@@ -162,26 +162,48 @@ export default {
                 },
                  { 
                     name: 'Coffee', 
-                    itemID: '334jhs', 
+                    itemID: '33jhs', 
                     price: 30,
                     description: "",
                     quantity: 0
                 },
                   { 
                     name: 'LOL?', 
-                    itemID: '334j33hs', 
+                    itemID: '334j3hs', 
                     price: 30000000,
                     description: "",
                     quantity: 0
                 },
             ],
             main: [
-            { name : 'Paneer Tikka', cost: 220 },
-            { name: 'Panner Butter', cost: 120 },
-            { name: 'Chicken Masala', cost: 320 },
-                { name: 'TAndoori Naan', cost: 120 },
-                { name: 'Lolipop', cost:1200 },
-                { name: 'Biryani', cost: 70 },
+            { 
+                name: 'Paneer Butter Masala', 
+                itemID: 'jk778a', 
+                price: 250, 
+                description: "",
+                quantity: 0
+                },
+                { 
+                    name: 'Butter Chicken', 
+                    itemID: 'sadj823', 
+                    price: 100,
+                    description: "",
+                    quantity: 0
+                },
+                { 
+                    name: 'tandoori Chicken', 
+                    itemID: 'kj767', 
+                    price: 30,
+                    description: "",
+                    quantity: 0
+                },
+                   { 
+                    name: 'Chana Masla', 
+                    itemID: 'k2ja67', 
+                    price: 30,
+                    description: "",
+                    quantity: 0
+                },
             ],
             deserts:[
                 {name: 'Mango', cost:70},
@@ -200,7 +222,7 @@ export default {
  methods: {
       addToCart: function(item) {
           console.log(this.sum);
-          alert('added');
+         
          
           if (this.cart.length == 0) {
               item.quantity += 1;
