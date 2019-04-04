@@ -7,7 +7,7 @@
                 <h5 style="letter-spacing:3px;text-align:center;font-family: 'Montserrat', sans-serif;">STARTERS</h5>
                 <br>
                 <main class="mw6 center"   v-for="item in starter">
-                        <article class="dt w-100 bb b--black-05 pb2 mt2" href="#0">
+                        <article class="dt w-100 bb b--black-05 pb2 mt2" href="#0" v-if="item['type']=='starter'">
                         <div class="dtc w2 w3-ns v-mid">
                             <img src="src/assets/tikka.jpg" class="ba b--black-10 db br-100 w2 w3-ns h2 h3-ns"/>
                         </div>
@@ -33,47 +33,51 @@
             </div>
             
              <div class="col-lg-4" style="padding:20px">
-                <h5 style="letter-spacing:3px;text-align:center;font-family: 'Montserrat', sans-serif; ">MAIN COURSE</h5>
+                     <h5 style="letter-spacing:3px;text-align:center;font-family: 'Montserrat', sans-serif;">Main</h5>
                 <br>
-                <main class="mw6 center"   v-for="i in main">
-                        <article class="dt w-100 bb b--black-05 pb2 mt2" href="#0">
+                <main class="mw6 center"   v-for="item in starter">
+                        <article class="dt w-100 bb b--black-05 pb2 mt2" href="#0" v-if="item['type']=='main'">
                         <div class="dtc w2 w3-ns v-mid">
-                            <img src="src/assets/chick.jpeg" class="ba b--black-10 db br-100 w2 w3-ns h2 h3-ns"/>
+                            <img src="src/assets/chick.jpg" class="ba b--black-10 db br-100 w2 w3-ns h2 h3-ns"/>
                         </div>
                         <div class="dtc v-mid pl3">
-                            <h1 class="f6 f5-ns fw6 lh-title black mv0">{{ i.name }} </h1>
-                            <h2 class="f6 fw4 mt0 mb0 black-60">&#8377; {{ i.price }}</h2>
+                            <h1 class="f6 f5-ns fw6 lh-title black mv0">{{ item['name'] }} </h1>
+                            <h2 class="f6 fw4 mt0 mb0 black-60">&#8377;{{ item['price'] }} </h2>
                         </div>
                         <div class="dtc v-mid">
                             <form class="w-100 tr">
-                            <button class="btn plus btn-info btn-sm" id="but" v-on:click.prevent="addToCart(i)" > + </button>
+                            <button class="btn plus btn-info btn-sm" id="but" v-on:click.prevent="addToCart(item)"> + </button>
+
                             </form>
                         </div>
                         </article>
 
                 </main>
 
+
             </div>
               <div class="col-lg-4" style="padding:20px">
-                <h5 style="letter-spacing:3px;text-align:center;font-family: 'Montserrat', sans-serif;">DESERTS</h5>
+                     <h5 style="letter-spacing:3px;text-align:center;font-family: 'Montserrat', sans-serif;">DESERTS</h5>
                 <br>
-                <main class="mw6 center"   v-for="i in deserts">
-                        <article class="dt w-100 bb b--black-05 pb2 mt2" href="#0">
+                <main class="mw6 center"   v-for="item in starter">
+                        <article class="dt w-100 bb b--black-05 pb2 mt2" href="#0" v-if="item['type']=='desert'">
                         <div class="dtc w2 w3-ns v-mid">
                             <img src="src/assets/black.jpg" class="ba b--black-10 db br-100 w2 w3-ns h2 h3-ns"/>
                         </div>
                         <div class="dtc v-mid pl3">
-                            <h1 class="f6 f5-ns fw6 lh-title black mv0">{{ i.name }} </h1>
-                            <h2 class="f6 fw4 mt0 mb0 black-60">&#8377; {{ i.price }}</h2>
+                            <h1 class="f6 f5-ns fw6 lh-title black mv0">{{ item['name'] }} </h1>
+                            <h2 class="f6 fw4 mt0 mb0 black-60">&#8377;{{ item['price'] }} </h2>
                         </div>
                         <div class="dtc v-mid">
                             <form class="w-100 tr">
-                            <button class="btn btn-info plus  btn-sm" id="but" v-on:click="addToCart(i)"> + </button>
+                            <button class="btn plus btn-info btn-sm" id="but" v-on:click.prevent="addToCart(item)"> + </button>
+
                             </form>
                         </div>
                         </article>
 
                 </main>
+
 
             </div>
 
@@ -160,7 +164,7 @@
                
 
 
-            axios .get('https://api.jsonbin.io/b/5ca59bb934241f2ab5e251da')
+            axios .get('https://api.jsonbin.io/b/5ca5b1b824f5074645ecf896/4')
             .then(response => (this.starter = response.data))
                 
 
@@ -170,86 +174,12 @@
             components:{
                 but
             },
+            lol:3,
             data() {
                 return{
 
                         starter:[],
-                        total:0,
-                        
-                        main: [
-                        { 
-                            name: 'Paneer Butter Masala', 
-                            itemID: 'jk778a', 
-                            price: 250, 
-                            description: "",
-                            quantity: 0
-                            },
-                            { 
-                                name: 'Butter Chicken', 
-                                itemID: 'sadj823', 
-                                price: 100,
-                                description: "",
-                                quantity: 0
-                            },
-                            { 
-                                name: 'tandoori Chicken', 
-                                itemID: 'kj767', 
-                                price: 30,
-                                description: "",
-                                quantity: 0
-                            },
-                            { 
-                                name: 'Chana Masla', 
-                                itemID: 'k2ja67', 
-                                price: 30,
-                                description: "",
-                                quantity: 0
-                            },
-                        ],
-                        deserts:[
-                          { 
-                            name: 'Mango', 
-                            itemID: 'asasd', 
-                            price: 50, 
-                            description: "",
-                            quantity: 0
-                            },
-                            { 
-                                name: 'Black', 
-                                itemID: 'sadjlk83', 
-                                price: 100,
-                                description: "",
-                                quantity: 0
-                            },
-                            { 
-                                name: 'Vanilla', 
-                                itemID: 'kja7', 
-                                price: 30,
-                                description: "",
-                                quantity: 0
-                            },
-                            { 
-                                name: 'Scotch', 
-                                itemID: 'k2a767', 
-                                price: 30,
-                                description: "",
-                                quantity: 0
-                            },
-                            { 
-                                name: 'Butter', 
-                                itemID: '33hs', 
-                                price: 30,
-                                description: "",
-                                quantity: 0
-                            },
-                            { 
-                                name: 'Chocolate', 
-                                itemID: '334j3s', 
-                                price: 30000000,
-                                description: "",
-                                quantity: 0
-                            },
-                        ],
+                        total:0,                   
                         cart:[],
                         sum:0,
 
