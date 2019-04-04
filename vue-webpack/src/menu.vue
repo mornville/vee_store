@@ -17,7 +17,7 @@
                         </div>
                         <div class="dtc v-mid">
                             <form class="w-100 tr">
-                            <button class="btn plus btn-info btn-sm" id="but" v-on:click.prevent="addToCart(item)"> + </button>
+                            <button class="btn plus btn-info btn-sm" id="but" v-on:click.prevent="addToCart(item)"><span class="fa fa-shopping-cart"></span></button>
 
                             </form>
                         </div>
@@ -33,7 +33,7 @@
             </div>
             
              <div class="col-lg-4" style="padding:20px">
-                     <h5 style="letter-spacing:3px;text-align:center;font-family: 'Montserrat', sans-serif;">Main</h5>
+                     <h5 style="letter-spacing:3px;text-align:center;font-family: 'Montserrat', sans-serif;">MAIN COURSE</h5>
                 <br>
                 <main class="mw6 center"   v-for="item in starter">
                         <article class="dt w-100 bb b--black-05 pb2 mt2" href="#0" v-if="item['type']=='main'">
@@ -46,7 +46,7 @@
                         </div>
                         <div class="dtc v-mid">
                             <form class="w-100 tr">
-                            <button class="btn plus btn-info btn-sm" id="but" v-on:click.prevent="addToCart(item)"> + </button>
+                            <button class="btn plus btn-info btn-sm" id="but" v-on:click.prevent="addToCart(item)"><span class="fa fa-shopping-cart"></span></button>
 
                             </form>
                         </div>
@@ -70,7 +70,7 @@
                         </div>
                         <div class="dtc v-mid">
                             <form class="w-100 tr">
-                            <button class="btn plus btn-info btn-sm" id="but" v-on:click.prevent="addToCart(item)"> + </button>
+                            <button class="btn plus btn-info btn-sm" id="but" v-on:click.prevent="addToCart(item)"><span class="fa fa-shopping-cart"></span></button>
 
                             </form>
                         </div>
@@ -306,7 +306,7 @@ h1{
 
 #mybutton {
   position: fixed;
-  bottom:2px;
+  bottom:20px;
   right: 10px;
   
 }
@@ -326,6 +326,7 @@ h1{
             0 5px 15px 0 rgba(0,0,0,0.08);
     padding:20px;
     font-size:40px;
+    background: white;
     border-radius: 50%;
     cursor:pointer;
     
@@ -381,4 +382,8 @@ h1{
   from {bottom: 30px; opacity: 1;}
   to {bottom: 0; opacity: 0;}
 }
+
+
+
+
 </style>

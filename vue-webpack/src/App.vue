@@ -42,3 +42,4 @@ import Message from './Message.vue';
 
 
 </script>
+
