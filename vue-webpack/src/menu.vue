@@ -6,18 +6,18 @@
               
                 <h5 style="letter-spacing:3px;text-align:center;font-family: 'Montserrat', sans-serif;">STARTERS</h5>
                 <br>
-                <main class="mw6 center"   v-for="item in items">
+                <main class="mw6 center"   v-for="item in starter">
                         <article class="dt w-100 bb b--black-05 pb2 mt2" href="#0">
                         <div class="dtc w2 w3-ns v-mid">
                             <img src="src/assets/tikka.jpg" class="ba b--black-10 db br-100 w2 w3-ns h2 h3-ns"/>
                         </div>
                         <div class="dtc v-mid pl3">
-                            <h1 class="f6 f5-ns fw6 lh-title black mv0">{{ item.name }} </h1>
-                            <h2 class="f6 fw4 mt0 mb0 black-60">&#8377; {{ item.price }}</h2>
+                            <h1 class="f6 f5-ns fw6 lh-title black mv0">{{ item['name'] }} </h1>
+                            <h2 class="f6 fw4 mt0 mb0 black-60">&#8377;{{ item['price'] }} </h2>
                         </div>
                         <div class="dtc v-mid">
                             <form class="w-100 tr">
-                            <button class="btn plus btn-info btn-sm" id="but" v-on:click="addToCart(item)"> + </button>
+                            <button class="btn plus btn-info btn-sm" id="but" v-on:click.prevent="addToCart(item)"> + </button>
 
                             </form>
                         </div>
@@ -46,7 +46,7 @@
                         </div>
                         <div class="dtc v-mid">
                             <form class="w-100 tr">
-                            <button class="btn plus btn-info btn-sm" id="but" v-on:click="addToCart(i)" > + </button>
+                            <button class="btn plus btn-info btn-sm" id="but" v-on:click.prevent="addToCart(i)" > + </button>
                             </form>
                         </div>
                         </article>
@@ -133,7 +133,7 @@
 <script>
 
 
-
+    import axios from 'axios';
     import but from './butt.vue';
 
             export default {
@@ -148,6 +148,20 @@
                         localStorage.removeItem('cart');
                     }
                 }
+                  if(localStorage.getItem('sum')) {
+                    try {
+                        this.sum = JSON.parse(localStorage.getItem('sum'));
+                        
+                    }
+                    catch(e) {
+                        localStorage.removeItem('sum');
+                    }
+                }
+               
+
+
+            axios .get('https://api.jsonbin.io/b/5ca59bb934241f2ab5e251da')
+            .then(response => (this.starter = response.data))
                 
 
                 
@@ -158,51 +172,10 @@
             },
             data() {
                 return{
+
+                        starter:[],
                         total:0,
-                        items: [
-                            { 
-                            name: 'Paneer Manchurian', 
-                            itemID: 'jk778aA', 
-                            price: 250, 
-                            description: "",
-                            quantity: 0
-                            },
-                            { 
-                                name: 'Coca Cola', 
-                                itemID: 'sadjlk823', 
-                                price: 100,
-                                description: "",
-                                quantity: 0
-                            },
-                            { 
-                                name: 'Bisleri 1L', 
-                                itemID: 'kja767', 
-                                price: 30,
-                                description: "",
-                                quantity: 0
-                            },
-                            { 
-                                name: 'Chai', 
-                                itemID: 'k2ja767', 
-                                price: 30,
-                                description: "",
-                                quantity: 0
-                            },
-                            { 
-                                name: 'Coffee', 
-                                itemID: '33jhs', 
-                                price: 30,
-                                description: "",
-                                quantity: 0
-                            },
-                            { 
-                                name: 'LOL?', 
-                                itemID: '334j3hs', 
-                                price: 30000000,
-                                description: "",
-                                quantity: 0
-                            },
-                        ],
+                        
                         main: [
                         { 
                             name: 'Paneer Butter Masala', 
@@ -315,6 +288,10 @@
                     // Saving item to cart
                     const parsed = JSON.stringify(this.cart);
                     localStorage.setItem('cart', parsed);
+                    //saving sum
+                     // Saving item to cart
+                    const parse = JSON.stringify(this.sum);
+                    localStorage.setItem('sum', parse);
                 },
                 quantity: function(item) {
                     var quant = 0;
@@ -353,6 +330,10 @@
                         this.removeZero();
                         const parsed = JSON.stringify(this.cart);
                         localStorage.setItem('cart', parsed);
+
+                        //sum
+                        const parse = JSON.stringify(this.sum);
+                    localStorage.setItem('sum', parse);
                     },
                     removeZero(){
                         var newCart = [];
