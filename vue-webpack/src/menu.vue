@@ -41,7 +41,7 @@
 
 							<div role="tabpanel" class="tab-pane" id="desserts">
 								<div class="row">
-									<div class="col-md-6" v-for="item in starter"  v-if="item['type']=='starter'">
+									<div class="col-md-6" v-for="item in type">
 										<ul class="menu-dish" >
 						                <li>
 						                <figure class="dish-entry">
@@ -70,7 +70,7 @@
 						                <div class="text">
 						                  <span class="price">&#8377; {{ item['price'] }}</span>
 						                  <h3>{{ item['name'] }}</h3>
-						                  <p class="cat" style="cursor:pointer" v-on:click.prevent="lol()">Add To Cart</p>
+						                  <p class="cat" style="cursor:pointer" v-on:click.prevent="addToCart(item)">Add To Cart</p>
 						                </div>
 						              </li>
 						            </ul>
@@ -178,9 +178,12 @@ import _ from 'lodash';
                 }
                
 
-
+ 
             axios .get('https://api.jsonbin.io/b/5ca5b1b824f5074645ecf896/4')
             .then(response => (this.starter = response.data));
+
+            this.type = _.uniqBy(this.starter,'type');
+              console.log(this.type);
 
                       
             },
@@ -189,7 +192,7 @@ import _ from 'lodash';
                 but
             },
             lol:3,
-
+      
             data() {
                 return{
 
@@ -203,16 +206,14 @@ import _ from 'lodash';
                     }
                 
             },
+            computed:
+            {
+              
+            },
             
            
             methods: {
-            lol:function(){
-              
-              var sort = [{name:'ashu',age:12},{name:'ashu',age:1},{name:'asu',age:12},];
-              var result = _.sortedUniq(sort.age);
-              console.log(result);
-            },
-         
+            
             addToCart: function(item) {
                     console.log(this.sum);
                   
@@ -301,6 +302,7 @@ import _ from 'lodash';
                         this.cart = newCart;
                     },
             },
+           
             }
            
                 
