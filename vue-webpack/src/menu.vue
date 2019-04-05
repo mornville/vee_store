@@ -70,7 +70,7 @@
 						                <div class="text">
 						                  <span class="price">&#8377; {{ item['price'] }}</span>
 						                  <h3>{{ item['name'] }}</h3>
-						                  <p class="cat" style="cursor:pointer" v-on:click.prevent="addToCart(item)">Add To Cart</p>
+						                  <p class="cat" style="cursor:pointer" v-on:click.prevent="lol()">Add To Cart</p>
 						                </div>
 						              </li>
 						            </ul>
@@ -119,9 +119,9 @@
                                         <span class="f6 db black-70">&#8377; {{item.price}}</span>
                                     </div>
                                     <div>
-                                        <a  class="f6 link blue hover-dark-gray"><button v-on:click="removeFromCart(item)">-</button> 
+                                        <a  class="f6 link blue hover-dark-gray"><button v-on:click="removeFromCart(item)" class="btn_add">-</button> 
                                                     {{ item.quantity }} 
-                                                     <button v-on:click="addToCart(item)">+</button> 
+                                                     <button v-on:click="addToCart(item)" class="btn_add">+</button> 
                                                     </a>
                                     </div>
                                 </li>     
@@ -147,6 +147,10 @@
 </template>
 <script>
 
+
+
+
+import _ from 'lodash';
 
     import axios from 'axios';
     import but from './butt.vue';
@@ -176,16 +180,16 @@
 
 
             axios .get('https://api.jsonbin.io/b/5ca5b1b824f5074645ecf896/4')
-            .then(response => (this.starter = response.data))
-                
+            .then(response => (this.starter = response.data));
 
-                
+                      
             },
             name:'men',
             components:{
                 but
             },
             lol:3,
+
             data() {
                 return{
 
@@ -193,14 +197,25 @@
                         total:0,                   
                         cart:[],
                         sum:0,
+                        type:[],
 
                 
                     }
                 
             },
+            
+           
             methods: {
-                addToCart: function(item) {
+            lol:function(){
+              
+              var sort = [{name:'ashu',age:12},{name:'ashu',age:1},{name:'asu',age:12},];
+              var result = _.sortedUniq(sort.age);
+              console.log(result);
+            },
+         
+            addToCart: function(item) {
                     console.log(this.sum);
+                  
                     
                     var x = document.getElementById("snackbar");
             x.className = "show";
@@ -287,6 +302,9 @@
                     },
             },
             }
+           
+                
+            
 </script>
 
 
@@ -621,8 +639,28 @@ h3{
   -webkit-transition: all 0.5s;
           transition: all 0.5s;
 }
+.btn_add{
+    position: relative;
+  display: inline-block;
+  padding: 4px 8px;
+  background: #111;
+  color: #ececec;
+  font-family: "Montserrat", "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-size: 0.9em;
+  line-height: 1.8em;
+  border-radius: 0;
+  -webkit-transition: all 0.5s;
+          transition: all 0.5s;
+}
 
 .btn:visited, .btn-ghost:visited, .btn-ghost-light:visited, .navbar .navbar-nav .dropdown .cart-dropdown .cart-btns .btn-ghost-light:visited, .btn-text:visited, .btn-text-light:visited, .btn-light:visited, .navbar .navbar-nav .dropdown .cart-dropdown .cart-btns .btn-ghost:visited, .navbar .navbar-nav .dropdown .cart-dropdown .cart-btns .btn-light:visited {
+  color: #ececec;
+  background: #111;
+}
+
+.btn_add:visited{
   color: #ececec;
   background: #111;
 }
@@ -632,7 +670,17 @@ h3{
   background: #3f3f3f;
 }
 
+.btn_add:visited:hover {
+  color: #ececec;
+  background: #3f3f3f;
+}
+
 .btn:hover, .btn-ghost:hover, .btn-ghost-light:hover, .navbar .navbar-nav .dropdown .cart-dropdown .cart-btns .btn-ghost-light:hover, .btn-text:hover, .btn-text-light:hover, .btn-light:hover, .navbar .navbar-nav .dropdown .cart-dropdown .cart-btns .btn-ghost:hover, .navbar .navbar-nav .dropdown .cart-dropdown .cart-btns .btn-light:hover {
+  color: #ececec;
+  background: #3f3f3f;
+}
+
+.btn_add:hover{
   color: #ececec;
   background: #3f3f3f;
 }
@@ -641,7 +689,10 @@ h3{
   color: #ececec;
   outline: none;
 }
-
+.btn_add:focus{
+    color: #ececec;
+  outline: none;
+}
 /* ---- 2.2 Ghost Buttons ---- */
 .btn-ghost, .btn-ghost-light, .navbar .navbar-nav .dropdown .cart-dropdown .cart-btns .btn-ghost-light {
   background: none;
