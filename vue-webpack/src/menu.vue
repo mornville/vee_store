@@ -1,87 +1,91 @@
 <template>
 
         <div class="row">
-            
-            <div class="col-lg-4" style="padding:20px">
-              
-                <h5 style="letter-spacing:3px;text-align:center;font-family: 'Montserrat', sans-serif;">STARTERS</h5>
-                <br>
-                <main class="mw6 center"   v-for="item in starter">
-                        <article class="dt w-100 bb b--black-05 pb2 mt2" href="#0" v-if="item['type']=='starter'">
-                        <div class="dtc w2 w3-ns v-mid">
-                            <img src="src/assets/tikka.jpg" class="ba b--black-10 db br-100 w2 w3-ns h2 h3-ns"/>
-                        </div>
-                        <div class="dtc v-mid pl3">
-                            <h1 class="f6 f5-ns fw6 lh-title black mv0">{{ item['name'] }} </h1>
-                            <h2 class="f6 fw4 mt0 mb0 black-60">&#8377;{{ item['price'] }} </h2>
-                        </div>
-                        <div class="dtc v-mid">
-                            <form class="w-100 tr">
-                            <button class="btn plus btn-info btn-sm" id="but" v-on:click.prevent="addToCart(item)"><span class="fa fa-shopping-cart"></span></button>
+            	<div class="colorlib-menu" style="font-family: 'Montserrat', sans-serif;">
+			<div class="container">
+				
+				<div class="row">
+					<div class="col-md-12 animate-box">
+						<div class="row">
+							<div class="col-md-12 text-center">
+								<ul class="nav nav-tabs text-center" role="tablist" style="">
+									<li role="presentation" class="active" style="float:left;"><a href="#main" aria-controls="mains" role="tab" data-toggle="tab" >MAIN</a></li>
+									<li role="presentation" style="float:left;"><a href="#desserts" aria-controls="desserts" role="tab" data-toggle="tab">STARTERS</a></li>
+									<li role="presentation" style="float:left;"><a href="#drinks" aria-controls="drinks" role="tab" data-toggle="tab">DESSERTS</a></li>
+								</ul>
+							</div>
+                            <br><br><br><br>
+						</div>
+						<div class="tab-content">
+							<div role="tabpanel" class="tab-pane active" id="main">
+								<div class="row">
+									<div class="col-md-6" v-for="item in starter"  v-if="item['type']=='main'">
+										<ul class="menu-dish" >
+						                <li>
+						                <figure class="dish-entry">
+						                	<div class="dish-img" style="background-image: url('src/assets/tikka.jpg');background-size:cover;background-repeat:no-repeat"></div>
+						                </figure>
+						                <div class="text">
+						                  <span class="price">&#8377; {{ item['price'] }}</span>
+						                  <h3>{{ item['name'] }}</h3>
+						                  <p class="cat" style="cursor:pointer" v-on:click.prevent="addToCart(item)">Add To Cart</p>
+						                </div>
+						              </li>
+						            </ul>
+									</div>
+									
+								</div>
+							</div>
 
-                            </form>
-                        </div>
-                        </article>
+							<div role="tabpanel" class="tab-pane" id="desserts">
+								<div class="row">
+									<div class="col-md-6" v-for="item in starter"  v-if="item['type']=='starter'">
+										<ul class="menu-dish" >
+						                <li>
+						                <figure class="dish-entry">
+						                	<div class="dish-img" style="background-image: url('src/assets/tikka.jpg');background-size:cover;background-repeat:no-repeat"></div>
+						                </figure>
+						                <div class="text">
+						                  <span class="price">&#8377; {{ item['price'] }}</span>
+						                  <h3>{{ item['name'] }}</h3>
+						                  <p class="cat" style="cursor:pointer" v-on:click.prevent="addToCart(item)">Add To Cart</p>
+						                </div>
+						              </li>
+						            </ul>
+									</div>
+									
+								</div>
+							</div>
 
-                </main>
-
-
-
-
-
-
-            </div>
-            
-             <div class="col-lg-4" style="padding:20px">
-                     <h5 style="letter-spacing:3px;text-align:center;font-family: 'Montserrat', sans-serif;">MAIN COURSE</h5>
-                <br>
-                <main class="mw6 center"   v-for="item in starter">
-                        <article class="dt w-100 bb b--black-05 pb2 mt2" href="#0" v-if="item['type']=='main'">
-                        <div class="dtc w2 w3-ns v-mid">
-                            <img src="src/assets/chick.jpg" class="ba b--black-10 db br-100 w2 w3-ns h2 h3-ns"/>
-                        </div>
-                        <div class="dtc v-mid pl3">
-                            <h1 class="f6 f5-ns fw6 lh-title black mv0">{{ item['name'] }} </h1>
-                            <h2 class="f6 fw4 mt0 mb0 black-60">&#8377;{{ item['price'] }} </h2>
-                        </div>
-                        <div class="dtc v-mid">
-                            <form class="w-100 tr">
-                            <button class="btn plus btn-info btn-sm" id="but" v-on:click.prevent="addToCart(item)"><span class="fa fa-shopping-cart"></span></button>
-
-                            </form>
-                        </div>
-                        </article>
-
-                </main>
-
-
-            </div>
-              <div class="col-lg-4" style="padding:20px">
-                     <h5 style="letter-spacing:3px;text-align:center;font-family: 'Montserrat', sans-serif;">DESERTS</h5>
-                <br>
-                <main class="mw6 center"   v-for="item in starter">
-                        <article class="dt w-100 bb b--black-05 pb2 mt2" href="#0" v-if="item['type']=='desert'">
-                        <div class="dtc w2 w3-ns v-mid">
-                            <img src="src/assets/black.jpg" class="ba b--black-10 db br-100 w2 w3-ns h2 h3-ns"/>
-                        </div>
-                        <div class="dtc v-mid pl3">
-                            <h1 class="f6 f5-ns fw6 lh-title black mv0">{{ item['name'] }} </h1>
-                            <h2 class="f6 fw4 mt0 mb0 black-60">&#8377;{{ item['price'] }} </h2>
-                        </div>
-                        <div class="dtc v-mid">
-                            <form class="w-100 tr">
-                            <button class="btn plus btn-info btn-sm" id="but" v-on:click.prevent="addToCart(item)"><span class="fa fa-shopping-cart"></span></button>
-
-                            </form>
-                        </div>
-                        </article>
-
-                </main>
-
-
-            </div>
-
-            <!-- Button trigger modal -->
+							<div role="tabpanel" class="tab-pane" id="drinks">
+								<div class="row">
+									<div class="col-md-6" v-for="item in starter"  v-if="item['type']=='desert'">
+										<ul class="menu-dish" >
+						                <li>
+						                <figure class="dish-entry">
+						                	<div class="dish-img" style="background-image: url('src/assets/tikka.jpg');background-size:cover;background-repeat:no-repeat"></div>
+						                </figure>
+						                <div class="text">
+						                  <span class="price">&#8377; {{ item['price'] }}</span>
+						                  <h3>{{ item['name'] }}</h3>
+						                  <p class="cat" style="cursor:pointer" v-on:click.prevent="addToCart(item)">Add To Cart</p>
+						                </div>
+						              </li>
+						            </ul>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12 animate-box text-center">
+						<p>Even the all-powerful Pointing has no control about the blind texts it is an almost</p>
+						<p><a href="#" class="btn btn-primary btn-outline btn-md">Book a table</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+               <!-- Button trigger modal -->
                 <span style="color:black" id="mybutton" data-toggle="modal" data-target="#exampleModalLong"><span class="cart-notif" style="box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
                         0 5px 15px 0 rgba(0,0,0,0.08);">{{ cart.length }}</span><i class=" car fa fa-shopping-bag "></i>
                 </span>
@@ -128,6 +132,7 @@
 
 
 
+	
 
             
             <div id="snackbar">Added To Cart..</div>
@@ -303,7 +308,10 @@ h1{
   line-height: 20px;
   text-align: center;
 }
-
+a{
+    text-decoration:none !important;
+    color:inherit;
+}
 #mybutton {
   position: fixed;
   bottom:20px;
@@ -384,6 +392,202 @@ h1{
 }
 
 
+.colorlib-menu,
+.colorlib-services,
+#colorlib-contact,
+.colorlib-blog,
+.colorlib-testimony,
+#colorlib-contact,
+.colorlib-about {
+  padding: 7em 0;
+  clear: both;
+  position: relative; }
+  @media screen and (max-width: 768px) {
+    .colorlib-reservation,
+    .colorlib-menu,
+    .colorlib-services,
+    #colorlib-contact,
+    .colorlib-blog,
+    .colorlib-testimony,
+    #colorlib-contact,
+    .colorlib-about {
+      padding: 5em 0; } }
+h3{
+    font-family: 'Montserrat', sans-serif;
+}
+.intro-heading {
+  margin-bottom: 3em;
+  position: relative; }
+  .intro-heading h2 {
+    font-size: 44px;
+    font-weight: 400;
+    line-height: 1.4;
+    position: relative; }
+  .intro-heading span {
+    display: block;
+    font-size: 18px;
+    font-style: italic;
+    margin-bottom: 10px;
+    font-family: "Lora", Georgia, serif;
+    color: #969696;
+    font-weight: 400; }
+  .intro-heading .icon {
+    position: relative;
+    padding: 0;
+    line-height: 1.3; }
+    .intro-heading .icon:after, .intro-heading .icon:before {
+      position: absolute;
+      top: 51%;
+      left: 0;
+      right: 0;
+      width: 400px;
+      height: 1px;
+      content: '';
+      margin: 0 auto;
+    
+      z-index: -1; }
+      @media screen and (max-width: 768px) {
+        .intro-heading .icon:after, .intro-heading .icon:before {
+          width: 250px; } }
+    .intro-heading .icon:after {
+      top: 48%;
+      width: 300px; }
+      @media screen and (max-width: 768px) {
+        .intro-heading .icon:after {
+          width: 180px; } }
+    .intro-heading .icon i {
+      font-size: 60px;
+      padding: 0 20px;
+      
+      color: #b0b0b0; }.intro-heading .icon {
+    position: relative;
+    padding: 0;
+    line-height: 1.3; }
+    .intro-heading .icon:after, .intro-heading .icon:before {
+      position: absolute;
+      top: 51%;
+      left: 0;
+      right: 0;
+      width: 400px;
+      height: 1px;
+      content: '';
+      margin: 0 auto;
+      background: #e3e3e3;
+      z-index: -1; }
+      @media screen and (max-width: 768px) {
+        .intro-heading .icon:after, .intro-heading .icon:before {
+          width: 250px; } }
+    .intro-heading .icon:after {
+      top: 48%;
+      width: 300px; }
+      @media screen and (max-width: 768px) {
+        .intro-heading .icon:after {
+          width: 180px; } }
+    .intro-heading .icon i {
+      font-size: 60px;
+      padding: 0 20px;
+      background: #FBFBFB;
+      color: #b0b0b0; }
+.nav-tabs {
+  border: none;
+  border-bottom: none;
+  display: inline-block;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s; }
+  .nav-tabs li {
+    margin: 0 auto;
+    font-size: 20px;
+    display: block;
+    font-weight: 500; }
+    @media screen and (max-width: 768px) {
+      .nav-tabs li {
+        font-size: 12px; } }
+    .nav-tabs li a {
+      border: none !important;
+      border-bottom: none !important;
+      background: transparent;
+      color: #404044;
+      bordeR: 1px solid red;
+      padding: 0;
+      margin: 0 1em; }
+      .nav-tabs li a:hover, .nav-tabs li a:focus {
+        background: transparent; }
+    .nav-tabs li.active a {
+      border: none !important;
+      border-bottom: none !important;
+      color: #404044 !important;
+      background: transparent !important;
+      position: relative; }
+      .nav-tabs li.active a:after {
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: #FF6107;
+        margin: 0 auto; }.tab-pane {
+  padding: 2em 0;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s; }
+.menu-dish {
+  padding: 0 2em;
+  margin: 0; }
+  @media screen and (max-width: 768px) {
+    .menu-dish {
+      padding: 0; } }
+  .menu-dish li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: block;
+    position: relative;
+    padding: 10px;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s; }
+    .menu-dish li:hover, .menu-dish li:focus, .menu-dish li.active {
+      background: rgba(255, 255, 255, 0.1); }
+    .menu-dish li .dish-entry, .menu-dish li .text {
+      display: table-cell;
+      vertical-align: top; }
+    .menu-dish li .dish-img {
+      height: 70px;
+      width: 70px;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      border-radius: 50%; }
+    .menu-dish li .text {
+      padding-left: 20px; }
+      .menu-dish li .text h3 {
+        margin: 10px 0 10px 0;
+        font-size: 16px;
+        font-weight: 700; }
+        @media screen and (max-width: 768px) {
+          .menu-dish li .text h3 {
+            margin-top: 0px; } }
+      .menu-dish li .text .cat {
+        color: #7d7d7d;
+        font-size: 14px; }
+      .menu-dish li .text .price {
+        position: absolute;
+        top: 20px;
+        right: 10px;
+        font-size: 24px;
+        color: #404044;
+       }
+        @media screen and (max-width: 480px) {
+          .menu-dish li .text .price {
+            right: 0;
+            top: 0px;
+            position: relative;
+            display: block;
+            margin-bottom: 0px; } }
 
+            
 
 </style>
