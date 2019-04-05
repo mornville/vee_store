@@ -1,27 +1,26 @@
 <template>
 
-        <div class="row">
-            	<div class="colorlib-menu" style="font-family: 'Montserrat', sans-serif;">
+    <div class="row">
+    <div class="colorlib-menu" style="font-family: 'Montserrat', sans-serif;">
 			<div class="container">
 				
 				<div class="row">
-					<div class="col-md-12 animate-box">
+					<div class="col-md-12 animate-box" v-for="i in type">
 						<div class="row">
 							<div class="col-md-12 text-center">
 								<ul class="nav nav-tabs text-center" role="tablist" style="">
-									<li role="presentation" class="active" style="float:left;"><a href="#main" aria-controls="mains" role="tab" data-toggle="tab" >MAIN</a></li>
-									<li role="presentation" style="float:left;"><a href="#desserts" aria-controls="desserts" role="tab" data-toggle="tab">STARTERS</a></li>
-									<li role="presentation" style="float:left;"><a href="#drinks" aria-controls="drinks" role="tab" data-toggle="tab">DESSERTS</a></li>
+									<li role="presentation" class="active" style="text-transform:uppercase;"><a>{{ i.type }}</a></li>
+
 								</ul>
 							</div>
-                            <div class="hid">
-                              <br><br><br><br>
-                            </div>
+                <div class="hid">
+                    <br><br>
+                </div>                          
 						</div>
 						<div class="tab-content">
 							<div role="tabpanel" class="tab-pane active" id="main">
 								<div class="row">
-									<div class="col-md-6" v-for="item in starter"  v-if="item['type']=='main'">
+									<div class="col-md-6" v-for="item in starter"  v-if="item['type']==i['type']">
 										<ul class="menu-dish" >
 						                <li>
 						                <figure class="dish-entry">
@@ -38,46 +37,8 @@
 									
 								</div>
 							</div>
+              <hr><br><br>
 
-							<div role="tabpanel" class="tab-pane" id="desserts">
-								<div class="row">
-									<div class="col-md-6" v-for="item in type">
-										<ul class="menu-dish" >
-						                <li>
-						                <figure class="dish-entry">
-						                	<div class="dish-img" style="background-image: url('src/assets/tikka.jpg');background-size:cover;background-repeat:no-repeat"></div>
-						                </figure>
-						                <div class="text">
-						                  <span class="price">&#8377; {{ item['price'] }}</span>
-						                  <h3>{{ item['name'] }}</h3>
-						                  <p class="cat" style="cursor:pointer" v-on:click.prevent="addToCart(item)">Add To Cart</p>
-						                </div>
-						              </li>
-						            </ul>
-									</div>
-									
-								</div>
-							</div>
-
-							<div role="tabpanel" class="tab-pane" id="drinks">
-								<div class="row">
-									<div class="col-md-6" v-for="item in starter"  v-if="item['type']=='desert'">
-										<ul class="menu-dish" >
-						                <li>
-						                <figure class="dish-entry">
-						                	<div class="dish-img" style="background-image: url('src/assets/tikka.jpg');background-size:cover;background-repeat:no-repeat"></div>
-						                </figure>
-						                <div class="text">
-						                  <span class="price">&#8377; {{ item['price'] }}</span>
-						                  <h3>{{ item['name'] }}</h3>
-						                  <p class="cat" style="cursor:pointer" v-on:click.prevent="addToCart(item)">Add To Cart</p>
-						                </div>
-						              </li>
-						            </ul>
-									</div>
-									
-								</div>
-							</div>
 						</div>
 					</div>
 					<div class="col-md-12 animate-box text-center">
@@ -149,7 +110,6 @@
 
 
 
-
 import _ from 'lodash';
 
     import axios from 'axios';
@@ -179,13 +139,15 @@ import _ from 'lodash';
                
 
  
-            axios .get('https://api.jsonbin.io/b/5ca5b1b824f5074645ecf896/4')
+            axios .get('https://api.jsonbin.io/b/5ca794f824f5074645ee8db7/2')
             .then(response => (this.starter = response.data));
 
-            this.type = _.uniqBy(this.starter,'type');
-              console.log(this.type);
 
-                      
+            axios .get('https://api.jsonbin.io/b/5ca794f824f5074645ee8db7/2')
+            .then(response => (this.type = _.uniqBy(response.data,'type')));
+
+           
+              
             },
             name:'men',
             components:{

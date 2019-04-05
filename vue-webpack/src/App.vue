@@ -25,6 +25,7 @@ import Message from './Message.vue';
 
 </style>
 <script>
+    
     import Input from './input.vue';
     import Message from './Message.vue';
     import Header from './header.vue';
