@@ -97,12 +97,13 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle"  style="text-align:center !important">Cart({{ cart.length }})</h5>
+                        <h3 class="modal-title" id="exampleModalLongTitle"  style="text-align:center !important">Cart({{ cart.length }})</h3>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" style="box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
+            0 5px 15px 0 rgba(0,0,0,0.08);">
                         <div v-if="!cart.length">
                             <div class="container" style="padding:40px;">
                               <h2>
@@ -110,7 +111,7 @@
                               </h2>
                               </div>                   
                         </div>    
-                        <ul class="list pl0 mt0 measure center">
+                        <ul class="list pl0 mt0 measure center" style="padding:40px">
                                 <li    class="flex items-center lh-copy pa3 ph0-l bb b--black-10" v-for="item in cart"> 
                                     <img class="w2 h2 w3-ns h3-ns br-100" src="src/assets/tikka.jpg" />
                                     <div class="pl3 flex-auto">
@@ -118,9 +119,10 @@
                                         <span class="f6 db black-70">&#8377; {{item.price}}</span>
                                     </div>
                                     <div>
-                                        <a  class="f6 link blue hover-dark-gray"> <button v-on:click="addToCart(item)">+</button> 
+                                        <a  class="f6 link blue hover-dark-gray"><button v-on:click="removeFromCart(item)">-</button> 
                                                     {{ item.quantity }} 
-                                                    <button v-on:click="removeFromCart(item)">-</button> </a>
+                                                     <button v-on:click="addToCart(item)">+</button> 
+                                                    </a>
                                     </div>
                                 </li>     
 
