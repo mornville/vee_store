@@ -14,7 +14,9 @@
 									<li role="presentation" style="float:left;"><a href="#drinks" aria-controls="drinks" role="tab" data-toggle="tab">DESSERTS</a></li>
 								</ul>
 							</div>
-                            <br><br><br><br>
+                            <div class="hid">
+                              <br><br><br><br>
+                            </div>
 						</div>
 						<div class="tab-content">
 							<div role="tabpanel" class="tab-pane active" id="main">
@@ -80,7 +82,7 @@
 					</div>
 					<div class="col-md-12 animate-box text-center">
 						<p>Even the all-powerful Pointing has no control about the blind texts it is an almost</p>
-						<p><a href="#" class="btn btn-primary btn-outline btn-md">Book a table</a></p>
+						<p><a href="#" class="btn btn-primary btn-outline btn-md" data-toggle="modal" data-target="#exampleModalLong">View Cart</a></p>
 					</div>
 				</div>
 			</div>
@@ -102,9 +104,11 @@
                     </div>
                     <div class="modal-body">
                         <div v-if="!cart.length">
-                            <h1>
-                                Why Empty? Buy Somethinng :)
-                            </h1>                   
+                            <div class="container" style="padding:40px;">
+                              <h2>
+                                Your Cart Is Empty!
+                              </h2>
+                              </div>                   
                         </div>    
                         <ul class="list pl0 mt0 measure center">
                                 <li    class="flex items-center lh-copy pa3 ph0-l bb b--black-10" v-for="item in cart"> 
@@ -123,8 +127,8 @@
                         </ul>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">BUY MORE?</button>
-                        <button type="button" class="btn btn-primary">CHECKOUT ( &#8377; {{ sum }}  )</button>
+                        <button type="button" class="btn btn-small btn-round" data-dismiss="modal">BUY MORE?</button>
+                          <button class="btn-ghost btn-small btn-round">CHECKOUT (&#8377;{{ sum }})</button>
                     </div>
                     </div>
                 </div>
@@ -588,6 +592,235 @@ h3{
             display: block;
             margin-bottom: 0px; } }
 
-            
+@media only screen and (max-width: 480px) {
+
+.pad{
+	padding: 40px !important;
+}
+.hid{
+	display:none;
+}
+
+}
+
+/* ---- 2.1 Defualt Buttons ---- */
+.btn, .btn-ghost, .btn-ghost-light, .navbar .navbar-nav .dropdown .cart-dropdown .cart-btns .btn-ghost-light, .btn-text, .btn-text-light, .btn-light, .navbar .navbar-nav .dropdown .cart-dropdown .cart-btns .btn-ghost, .navbar .navbar-nav .dropdown .cart-dropdown .cart-btns .btn-light {
+  position: relative;
+  display: inline-block;
+  padding: 8px 38px;
+  background: #111;
+  color: #ececec;
+  font-family: "Montserrat", "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-size: 0.9em;
+  line-height: 1.8em;
+  border-radius: 0;
+  -webkit-transition: all 0.5s;
+          transition: all 0.5s;
+}
+
+.btn:visited, .btn-ghost:visited, .btn-ghost-light:visited, .navbar .navbar-nav .dropdown .cart-dropdown .cart-btns .btn-ghost-light:visited, .btn-text:visited, .btn-text-light:visited, .btn-light:visited, .navbar .navbar-nav .dropdown .cart-dropdown .cart-btns .btn-ghost:visited, .navbar .navbar-nav .dropdown .cart-dropdown .cart-btns .btn-light:visited {
+  color: #ececec;
+  background: #111;
+}
+
+.btn:visited:hover, .btn-ghost:visited:hover, .btn-ghost-light:visited:hover, .navbar .navbar-nav .dropdown .cart-dropdown .cart-btns .btn-ghost-light:visited:hover, .btn-text:visited:hover, .btn-text-light:visited:hover, .btn-light:visited:hover, .navbar .navbar-nav .dropdown .cart-dropdown .cart-btns .btn-ghost:visited:hover, .navbar .navbar-nav .dropdown .cart-dropdown .cart-btns .btn-light:visited:hover {
+  color: #ececec;
+  background: #3f3f3f;
+}
+
+.btn:hover, .btn-ghost:hover, .btn-ghost-light:hover, .navbar .navbar-nav .dropdown .cart-dropdown .cart-btns .btn-ghost-light:hover, .btn-text:hover, .btn-text-light:hover, .btn-light:hover, .navbar .navbar-nav .dropdown .cart-dropdown .cart-btns .btn-ghost:hover, .navbar .navbar-nav .dropdown .cart-dropdown .cart-btns .btn-light:hover {
+  color: #ececec;
+  background: #3f3f3f;
+}
+
+.btn:focus, .btn-ghost:focus, .btn-ghost-light:focus, .navbar .navbar-nav .dropdown .cart-dropdown .cart-btns .btn-ghost-light:focus, .btn-text:focus, .btn-text-light:focus, .btn-light:focus, .navbar .navbar-nav .dropdown .cart-dropdown .cart-btns .btn-ghost:focus, .navbar .navbar-nav .dropdown .cart-dropdown .cart-btns .btn-light:focus {
+  color: #ececec;
+  outline: none;
+}
+
+/* ---- 2.2 Ghost Buttons ---- */
+.btn-ghost, .btn-ghost-light, .navbar .navbar-nav .dropdown .cart-dropdown .cart-btns .btn-ghost-light {
+  background: none;
+  color: #111;
+  border: 2px solid #111;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-ghost:after, .btn-ghost-light:after, .navbar .navbar-nav .dropdown .cart-dropdown .cart-btns .btn-ghost-light:after {
+  content: '';
+  position: absolute;
+  background: #111;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: top 0.3s;
+          transition: top 0.3s;
+  z-index: -1;
+}
+
+.btn-ghost:visited,
+.btn-ghost-light:visited,
+.navbar .navbar-nav .dropdown .cart-dropdown .cart-btns .btn-ghost-light:visited,
+.btn-ghost:focus, .btn-ghost-light:focus, .navbar .navbar-nav .dropdown .cart-dropdown .cart-btns .btn-ghost-light:focus {
+  color: #111;
+  text-decoration: none;
+}
+
+.btn-ghost:hover, .btn-ghost-light:hover, .navbar .navbar-nav .dropdown .cart-dropdown .cart-btns .btn-ghost-light:hover {
+  color: #ececec;
+  background: none;
+}
+
+.btn-ghost:hover:visited, .btn-ghost-light:hover:visited, .navbar .navbar-nav .dropdown .cart-dropdown .cart-btns .btn-ghost-light:hover:visited {
+  color: #ececec;
+  text-decoration: none;
+}
+
+.btn-ghost:hover:after, .btn-ghost-light:hover:after, .navbar .navbar-nav .dropdown .cart-dropdown .cart-btns .btn-ghost-light:hover:after {
+  top: 0;
+}
+
+input[class="btn-ghost"]:hover {
+  color: #ececec;
+  background: #111;
+}
+
+input[class="btn-ghost"]:after {
+  content: none;
+}
+
+/* ---- 2.3 Buttons Rounded ---- */
+.btn-round {
+  border-radius: 25px;
+}
+
+/* ---- 2.4 Text Buttons ---- */
+.btn-text, .btn-text-light {
+  background: none;
+  border: 2px solid rgba(17, 17, 17, 0);
+  color: #777;
+}
+
+.btn-text:visited, .btn-text-light:visited {
+  color: #777;
+  background: none;
+}
+
+.btn-text:visited:hover, .btn-text-light:visited:hover {
+  color: #111;
+  background: none;
+  border: 2px solid #111111;
+}
+
+.btn-text:hover, .btn-text-light:hover {
+  color: #111;
+  background: none;
+  border: 2px solid #111111;
+}
+
+.btn-text:focus, .btn-text-light:focus {
+  color: #111;
+  outline: none;
+  text-decoration: none;
+}
+
+/* ---- 2.5 Button Sizes ---- */
+.btn-large {
+  padding: 10px 54px;
+  font-size: 1.1em;
+  letter-spacing: 3px;
+}
+
+.btn-small {
+  padding: 6px 33px;
+  font-size: 0.75em;
+}
+
+/* ---- 2.6 Light Buttons ---- */
+.btn-light {
+  color: #111;
+  background: #ececec;
+}
+
+.btn-light:visited {
+  color: #111;
+  background: #ececec;
+}
+
+.btn-light:visited:hover {
+  color: #111;
+  background: #bebebe;
+}
+
+.btn-light:hover {
+  color: #111;
+  background: #bebebe;
+}
+
+.btn-light:focus {
+  color: #111;
+}
+
+.btn-ghost-light {
+  z-index: 1;
+  border-color: #ececec;
+  color: #ececec;
+}
+
+.btn-ghost-light:after {
+  background: #ececec;
+}
+
+.btn-ghost-light:hover {
+  color: #111;
+}
+
+.btn-ghost-light:hover:visited {
+  color: #111;
+}
+
+.btn-ghost-light:visited {
+  color: #ececec;
+}
+
+input[class="btn-ghost-light"] {
+  z-index: 1;
+}
+
+input[class="btn-ghost-light"]:hover {
+  z-index: 1;
+  color: #111;
+  background: #ececec;
+}
+
+.btn-text-light {
+  border: 2px solid rgba(235, 235, 235, 0);
+}
+
+.btn-text-light:visited:hover {
+  color: #ececec;
+  border: 2px solid #ebebeb;
+}
+
+.btn-text-light:hover {
+  color: #ececec;
+  border: 2px solid #ebebeb;
+}
+
+.btn-text-light:focus {
+  color: #ececec;
+}
+
+
+
+
+
+
+
+
 
 </style>

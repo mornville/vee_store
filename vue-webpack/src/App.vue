@@ -3,13 +3,13 @@ import Message from './Message.vue';
 
 <template>
   <div id="app">
-    <br><br><br>
+
      <Header store_name="Sadda Adda" store_desc="Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life" style="padding:20px"></Header>
   
 
     <div class="container">   
 
-       
+  
   
         <Menu></Menu>
         <br><br><br><br>
