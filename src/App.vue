@@ -28,8 +28,8 @@ import Message from './Message.vue';
 </style>
 <script>
     
-    import Input from './input.vue';
-    import Message from './Message.vue';
+  
+   
     import Header from './header.vue';
     import Menu from './menu.vue';
     import foot from './footer.vue';    
@@ -38,7 +38,7 @@ import Message from './Message.vue';
     export default{
         name: 'App',
         components: {
-            Input,Message,Header,Menu,foot
+            Header,Menu,foot
         },
         
     }
