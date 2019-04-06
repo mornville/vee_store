@@ -1,124 +1,127 @@
 <template>
 
-    <div class="row">
-    <div class="colorlib-menu" style="font-family: 'Montserrat', sans-serif;">
-			<div class="container">
-				
-				<div class="row">
-					<div class="col-md-12 animate-box" v-for="i in type">
-						<div class="row">
-							<div class="col-md-12 text-center">
-								<ul class="nav nav-tabs text-center" role="tablist" style="">
-									<li role="presentation" class="active" style="text-transform:uppercase;"><a>{{ i.type }}</a></li>
+  <div class="row">
 
-								</ul>
-							</div>
-                <div class="hid">
-                    <br><br>
-                </div>                          
-						</div>
-						<div class="tab-content">
-							<div role="tabpanel" class="tab-pane active" id="main">
-								<div class="row">
-									<div class="col-md-6" v-for="item in starter"  v-if="item['type']==i['type']">
-										<ul class="menu-dish" >
-						                <li>
-						                <figure class="dish-entry">
-						                	<div class="dish-img" style="background-image: url('src/assets/tikka.jpg');background-size:cover;background-repeat:no-repeat"></div>
-						                </figure>
-						                <div class="text">
-						                  <span class="price">&#8377; {{ item['price'] }}</span>
-						                  <h3>{{ item['name'] }}</h3>
-						                  <p class="cat" style="cursor:pointer" v-on:click.prevent="addToCart(item)">Add To Cart</p>
-						                </div>
-						              </li>
-						            </ul>
-									</div>
-									
-								</div>
-							</div>
-              <hr><br><br>
+      <div class="colorlib-menu" style="font-family: 'Montserrat', sans-serif;">
+          <div class="container">		
+              <!-- individualType with items -->		
+                <div class="row">
+                      <div class="col-md-12 animate-box" v-for="i in type">
+                          <div class="row">
+                              <div class="col-md-12 text-center">
+                                  <!-- typeName -->
+                                    <ul class="nav nav-tabs text-center" role="tablist" style="">
+                                      <li role="presentation" class="active" style="text-transform:uppercase;"><a>{{ i.type }}</a></li>
+                                    </ul>
+                                  <!-- end -->
+                              </div>
+                              <!-- additonal Space hid on mobile -->
+                                <div class="hid">
+                                  <br><br>
+                                </div>
+                              <!-- end --> 
+                          </div>
+                          <div class="tab-content">
+                              <div role="tabpanel" class="tab-pane active" id="main">
+                                  <div class="row">
+                                      <div class="col-md-6" v-for="item in starter"  v-if="item['type']==i['type']">
+                                          <ul class="menu-dish" >
+                                              <li>
+                                                  <!-- dishImage -->
+                                                  <figure class="dish-entry">
+                                                    <div class="dish-img" style="background-image: url('src/assets/tikka.jpg');background-size:cover;background-repeat:no-repeat"></div>
+                                                  </figure>
+                                                  <!-- end -->
 
-						</div>
-					</div>
-					<div class="col-md-12 animate-box text-center">
-						<p>Even the all-powerful Pointing has no control about the blind texts it is an almost</p>
-						<p><a href="#" class="btn btn-primary btn-outline btn-md" data-toggle="modal" data-target="#exampleModalLong">View Cart</a></p>
-					</div>
-				</div>
-			</div>
-		</div>
-               <!-- Button trigger modal -->
-                <span style="color:black" id="mybutton" data-toggle="modal" data-target="#exampleModalLong"><span class="cart-notif" style="box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
-                        0 5px 15px 0 rgba(0,0,0,0.08);">{{ cart.length }}</span><i class=" car fa fa-shopping-bag "></i>
-                </span>
-
-                <!-- Modal -->
-                <div class="modal fade" style="text-align:center" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h3 class="modal-title" id="exampleModalLongTitle"  style="text-align:center !important">Cart({{ cart.length }})</h3>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body" style="box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
-            0 5px 15px 0 rgba(0,0,0,0.08);">
-                        <div v-if="!cart.length">
-                            <div class="container" style="padding:40px;">
-                              <h2>
-                                Your Cart Is Empty!
-                              </h2>
-                              </div>                   
-                        </div>    
-                        <ul class="list pl0 mt0 measure center" style="padding:40px">
-                                <li    class="flex items-center lh-copy pa3 ph0-l bb b--black-10" v-for="item in cart"> 
-                                    <img class="w2 h2 w3-ns h3-ns br-100" src="src/assets/tikka.jpg" />
-                                    <div class="pl3 flex-auto">
-                                        <span class="f6 db black-70"> {{ item.name }}</span>
-                                        <span class="f6 db black-70">&#8377; {{item.price}}</span>
-                                    </div>
-                                    <div>
-                                        <a  class="f6 link blue hover-dark-gray"><button v-on:click="removeFromCart(item)" class="btn_add">-</button> 
-                                                    {{ item.quantity }} 
-                                                     <button v-on:click="addToCart(item)" class="btn_add">+</button> 
-                                                    </a>
-                                    </div>
-                                </li>     
-
-                        </ul>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-small btn-round" data-dismiss="modal">BUY MORE?</button>
-                          <button class="btn-ghost btn-small btn-round">CHECKOUT (&#8377;{{ sum }})</button>
-                    </div>
-                    </div>
+                                                  <!-- dishDescription -->
+                                                  <div class="text">
+                                                    <span class="price">&#8377; {{ item['price'] }}</span>
+                                                    <h3>{{ item['name'] }}</h3>
+                                                    <p class="cat" style="cursor:pointer" v-on:click.prevent="addToCart(item)">Add To Cart</p>
+                                                  </div>
+                                                  <!-- end  -->
+                                              </li>
+                                          </ul>
+                                      </div>                          
+                                  </div>
+                                </div>
+                              <hr><br><br>
+                          </div>
+                      </div>
+                      <div class="col-md-12 animate-box text-center">
+                        <p>Even the all-powerful Pointing has no control about the blind texts it is an almost</p>
+                        <p><a href="#" class="btn btn-primary btn-outline btn-md" data-toggle="modal" data-target="#exampleModalLong">View Cart</a></p>
+                      </div>
                 </div>
-                </div>
+          </div>
+      </div>
 
+      <!-- Button trigger modal -->
+      <span style="color:black" id="mybutton" data-toggle="modal" data-target="#exampleModalLong"><span class="cart-notif" style="box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),0 5px 15px 0 rgba(0,0,0,0.08);">{{ cart.length }}</span><i class=" car fa fa-shopping-bag "></i></span>         
+        
+      <!-- Modal -->
+      <div class="modal fade" style="text-align:center" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title" id="exampleModalLongTitle"  style="text-align:center !important">Cart({{ cart.length }})</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>           
+            </div>
+          <div class="modal-body" style="box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),0 5px 15px 0 rgba(0,0,0,0.08);">
+              <!-- If cart is empty --> 
+              <div v-if="!cart.length">
+                <div class="container" style="padding:40px;">
+                  <h2>Your Cart Is Empty!</h2>
+                </div>                   
+              </div>   
+              <!-- If cart Not empty -->            
+              <ul class="list pl0 mt0 measure center" style="padding:40px">
+                  <li class="flex items-center lh-copy pa3 ph0-l bb b--black-10" v-for="item in cart"> 
+                    <img class="w2 h2 w3-ns h3-ns br-100" src="src/assets/tikka.jpg" />
+                      <div class="pl3 flex-auto">
+                        <span class="f6 db black-70"> {{ item.name }}</span>
+                          <span class="f6 db black-70">&#8377; {{item.price}}</span>
+                      </div>
+                      
+                      <div>
+                        <a  class="f6 link blue hover-dark-gray"><button v-on:click="removeFromCart(item)" class="btn_add">-</button>{{ item.quantity }}<button v-on:click="addToCart(item)" class="btn_add">+</button></a>
+                      </div>
+                  </li>     
 
-
-	
-
+              </ul>
+            </div>
             
-            <div id="snackbar">Added To Cart..</div>
+            <!-- modalFooter -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-small btn-round" data-dismiss="modal">BUY MORE?</button>
+                <button class="btn-ghost btn-small btn-round">CHECKOUT (&#8377;{{ sum }})</button>
+            </div>
+                      
+          </div>
         </div>
+      </div>       
+
+      <!-- Snackbar --> 
+      <div id="snackbar">Added To Cart..</div>
+
+
+      <!-- endApp --> 
+  </div>
 
 </template>
+
 <script>
+  import _ from 'lodash';
+  import axios from 'axios'; 
 
-
-
-import _ from 'lodash';
-
-    import axios from 'axios';
-    import but from './butt.vue';
-
-            export default {
+        export default 
+        {
                 
-            mounted() {
-                if(localStorage.getItem('cart')) {
+            mounted() 
+            {   
+                //cartItems in localStorage
+                if(localStorage.getItem('cart')) 
+                {
                     try {
                         this.cart = JSON.parse(localStorage.getItem('cart'));
                         
@@ -127,7 +130,9 @@ import _ from 'lodash';
                         localStorage.removeItem('cart');
                     }
                 }
-                  if(localStorage.getItem('sum')) {
+                //sum in localStorage
+                if(localStorage.getItem('sum')) 
+                {
                     try {
                         this.sum = JSON.parse(localStorage.getItem('sum'));
                         
@@ -135,70 +140,55 @@ import _ from 'lodash';
                     catch(e) {
                         localStorage.removeItem('sum');
                     }
-                }
-               
+                } 
+                // fetching menu items   
+                axios .get('https://api.jsonbin.io/b/5ca794f824f5074645ee8db7/2')
+                .then(response => (this.starter = response.data));
+                //filtering by type
+                axios .get('https://api.jsonbin.io/b/5ca794f824f5074645ee8db7/2')
+                .then(response => (this.type = _.uniqBy(response.data,'type')));
 
- 
-            axios .get('https://api.jsonbin.io/b/5ca794f824f5074645ee8db7/2')
-            .then(response => (this.starter = response.data));
-
-
-            axios .get('https://api.jsonbin.io/b/5ca794f824f5074645ee8db7/2')
-            .then(response => (this.type = _.uniqBy(response.data,'type')));
-
-           
-              
             },
             name:'men',
-            components:{
-                but
-            },
-            lol:3,
-      
-            data() {
-                return{
-
-                        starter:[],
-                        total:0,                   
-                        cart:[],
-                        sum:0,
-                        type:[],
-
-                
-                    }
-                
-            },
-            computed:
+            data() 
             {
-              
+              return {
+                    starter:[],
+                    cart:[],
+                    sum:0,
+                    type:[],
+              }
+                
             },
-            
-           
-            methods: {
-            
-            addToCart: function(item) {
-                    console.log(this.sum);
-                  
-                    
+            methods: 
+            { 
+                //addToCart
+                addToCart: function(item) 
+                {
                     var x = document.getElementById("snackbar");
-            x.className = "show";
-            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 1000);
-
-                    if (this.cart.length == 0) {
+                    x.className = "show";
+                    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 1000);
+                    if (this.cart.length == 0)
+                    {
                         item.quantity += 1;
                         this.sum = this.sum + item.price;
                         this.cart.push(item);
                     }
-                    else {
+                    else 
+                    {
                         var found = false;
-                        this.cart.forEach(element => {
-                            if (element.itemID === item.itemID) {
+                        this.cart.forEach(element => 
+                        {
+                            if (element.itemID === item.itemID) 
+                            {
                                 element.quantity += 1;
                                 this.sum = this.sum + item.price;
                                 found = true;
                             }
                         });
-                        if (found==false) {
+
+                        if (found==false) 
+                        {
                             item.quantity += 1
                             this.sum = this.sum + item.price;
                             this.cart.push(item);
@@ -207,68 +197,78 @@ import _ from 'lodash';
                     // Saving item to cart
                     const parsed = JSON.stringify(this.cart);
                     localStorage.setItem('cart', parsed);
-                    //saving sum
-                     // Saving item to cart
+                    
+                    // Saving sum to localStorage After adding to cart
                     const parse = JSON.stringify(this.sum);
                     localStorage.setItem('sum', parse);
                 },
-                quantity: function(item) {
+                    
+                quantity: function(item) 
+                {
                     var quant = 0;
-                    this.cart.forEach(element => {
-                        if(element.itemID == item.itemID) {
-                            quant = element.quantity
-                        }
+                    this.cart.forEach(element => 
+                    {
+                            if(element.itemID == item.itemID) 
+                            {
+                                quant = element.quantity
+                            }
                     });
+                    
                     return quant;
                 },
-                reverse(){
-                    this.total++;
-                },
-                removeFromCart: function(item) {
-                        console.log("executing this!!");
-                        if (this.cart.length == 0) {
+               //removing from cart
+                removeFromCart: function(item) 
+                {
+                    console.log("executing this!!");
+                    if (this.cart.length == 0) 
+                    {
                         return;
-                        }
-                        else {
-                            var found = false;
-                            this.cart.forEach(element => {
-                                if (element.itemID === item.itemID) {
-                                    
-                                    element.quantity -= 1;
-                                    this.sum = this.sum - item.price;
-                                    found = true;
-                                }
-                            });
-                            if (found==false) {
-                                item.quantity -= 1
-                                this.sum = this.sum - item.price;
-                                this.cart.push(item);
+                    }
+                    else 
+                    {
+                        var found = false;
+                        this.cart.forEach(element => 
+                        {
+                            if (element.itemID === item.itemID) 
+                            {                                   
+                                  element.quantity -= 1;
+                                  this.sum = this.sum - item.price;
+                                  found = true;
                             }
-                        }
-                        // Saving item to cart
-                        this.removeZero();
-                        const parsed = JSON.stringify(this.cart);
-                        localStorage.setItem('cart', parsed);
-
-                        //sum
-                        const parse = JSON.stringify(this.sum);
-                    localStorage.setItem('sum', parse);
-                    },
-                    removeZero(){
-                        var newCart = [];
-                        this.cart.forEach(element => {
-                            if(element.quantity != 0) {
-                                newCart.push(element);
-                            } 
                         });
-                        this.cart = newCart;
-                    },
+                        if (found==false) 
+                        {
+                            item.quantity -= 1
+                            this.sum = this.sum - item.price;
+                            this.cart.push(item);
+                        }
+                    }
+                    // removing item to cart
+                    this.removeZero();
+                    const parsed = JSON.stringify(this.cart);
+                    localStorage.setItem('cart', parsed);
+
+                    // deducting sum
+                    const parse = JSON.stringify(this.sum);
+                    localStorage.setItem('sum', parse);
+                },
+                //for removing items from cart when quant = 0
+                removeZero()
+                {
+                    var newCart = [];
+                    this.cart.forEach(element => 
+                    {
+                        if(element.quantity != 0) 
+                        {
+                            newCart.push(element);
+                        } 
+                    });
+                    this.cart = newCart;
+                },
+            //end methods    
             },
            
-            }
-           
-                
-            
+          }            
 </script>
 
 
