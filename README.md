@@ -1,6 +1,6 @@
-# vue
+# vee_store using vue
 
-> lol?
+> template for veepay store using vue
 
 ## Build Setup
 
