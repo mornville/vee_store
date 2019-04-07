@@ -12,34 +12,18 @@
               <h3 class="modal-title" id="exampleModalLongTitle"  style="text-align:center !important">Search Bar</h3>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>           
             </div>
-          <div class="modal-body" style="box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),0 5px 15px 0 rgba(0,0,0,0.08);">
-            <div class="md:w-1/2 center bg-teal-light min-h-screen overflow-scroll">
-  
-                <p class="text-grey-darkest px-12">Search For the Dish You Love <span class="fa fa-heart"> </span> </p>
-                <div class="flex flex-col pt-8">
-                  <VueFuse
-                    placeholder="Search :)"
-                    event-name="results"
-                    :list="dish"
-                    :keys="['name']"
-                    class="w-64 text-center h-8 border rounded-lg center"
-                  />
-                  
-              </div>
-              <div v-for="i in results" :key="i.name" class="rounded-lg bg-blue text-white p-4 m-4 flex text-left">
-                <div class="w-1/4">{{ i.name }}</div>
+            <div class="modal-body" style="box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),0 5px 15px 0 rgba(0,0,0,0.08);">
+                <div class="md:w-1/2 center bg-teal-light min-h-screen overflow-scroll">  
+                      <p class="text-grey-darkest px-12">Search For the Dish You Love <span class="fa fa-heart"> </span> </p>
+                      <div class="flex flex-col pt-8">
+                        <VueFuse  placeholder="Search :)" event-name="results" :list="dish" :keys="['name']" class="w-64 text-center h-8 border rounded-lg center"/>                    
+                      </div>
+                      <div v-for="i in results" :key="i.name" class="rounded-lg bg-blue text-white p-4 m-4 flex text-left">
+                        <div class="w-1/4">{{ i.name }}</div>              
+                      </div>
+                </div>
               
-              </div>
-    </div>
-             
-          </div>
-            
-            <!-- modalFooter -->
-            <div class="modal-footer">
-               
-                
-            </div>
-                      
+            </div>                    
           </div>
         </div>
       </div> 
