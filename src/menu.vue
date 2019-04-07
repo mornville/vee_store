@@ -58,7 +58,6 @@
 
       <!-- Button trigger modal -->
       <span style="color:black" id="mybutton" data-toggle="modal" data-target="#exampleModalLong"><span class="cart-notif" style="box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),0 5px 15px 0 rgba(0,0,0,0.08);">{{ cart.length }}</span><i class=" car fa fa-shopping-bag "></i></span>         
-        
       <!-- Modal -->
       <div class="modal fade" style="text-align:center" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -104,6 +103,7 @@
       <!-- Snackbar --> 
       <div id="snackbar">Added To Cart..</div>
 
+      <search></search> 
 
       <!-- endApp --> 
   </div>
@@ -111,12 +111,17 @@
 </template>
 
 <script>
+  import search from './search.vue';
   import _ from 'lodash';
   import axios from 'axios'; 
 
         export default 
         {
-                
+            name:'m',
+            components:
+             {
+               search
+             },   
             mounted() 
             {   
                 //cartItems in localStorage
@@ -142,10 +147,10 @@
                     }
                 } 
                 // fetching menu items   
-                axios .get('https://api.jsonbin.io/b/5ca794f824f5074645ee8db7/2')
+                axios .get('https://api.jsonbin.io/b/5ca981f48b8d1301a25a85ed/1')
                 .then(response => (this.starter = response.data));
                 //filtering by type
-                axios .get('https://api.jsonbin.io/b/5ca794f824f5074645ee8db7/2')
+                axios .get('https://api.jsonbin.io/b/5ca981f48b8d1301a25a85ed/1')
                 .then(response => (this.type = _.uniqBy(response.data,'type')));
 
             },
@@ -306,6 +311,12 @@ a{
   right: 10px;
   
 }
+#mybuttontop {
+  position: fixed;
+  top:20px;
+  right: 10px;
+  
+}
 .plus{
       box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
             0 5px 15px 0 rgba(0,0,0,0.08);
@@ -318,12 +329,22 @@ a{
    border : 1px solid black; 
 }
 .car{
-  box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
-            0 5px 15px 0 rgba(0,0,0,0.08);
+  box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),0 5px 15px 0 rgba(0,0,0,0.08);
     padding:20px;
     font-size:40px;
     background: white;
     border-radius: 50%;
+    cursor:pointer;
+    
+
+}
+.search{
+  box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),0 5px 15px 0 rgba(0,0,0,0.08);
+    padding:13px;
+    font-size:20px;
+   
+   
+    color:white;
     cursor:pointer;
     
 
