@@ -83,7 +83,7 @@
                       </div>
                       
                       <div>
-                        <a  class="f6 link blue hover-dark-gray"><button v-on:click="removeFromCart(item)" class="btn_add">-</button>{{ item.quantity }}<button v-on:click="addToCart(item)" class="btn_add">+</button></a>
+                        <a  class="f6 link blue hover-dark-gray"><button v-on:click="removeFromCart(item)" class="btn_add">-</button> {{ item.quantity }} <button v-on:click="addToCart(item)" class="btn_add">+</button></a>
                       </div>
                   </li>     
 
